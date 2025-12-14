@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e008469f230dd149b7d643733b39542, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Game.Tiles.TileConfig
-  _sprite: {fileID: 21300000, guid: 2a494fcba5e360c469fac862cc91fb2c, type: 3}
+  _sprite: {fileID: 21300000, guid: 4778f6e8c610a984cbd581e38729917a, type: 3}
   _tileKind: 0
   _isInteractable: 1

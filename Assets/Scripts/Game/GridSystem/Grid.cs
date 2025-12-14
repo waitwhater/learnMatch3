@@ -41,5 +41,30 @@ namespace Assets.Scripts.Game.GridSystem
                 && x < Height 
                 && y < Width;
         }
+
+        public void SetValue(int x, int y, Tile tile)
+        { 
+            if (IsValidPosition(x, y))
+                GameGrid[x, y] = tile;
+        }
+
+        public void SetValue(Vector3 worldPosition, Tile tile)
+        {
+            var worldPos = WorldToGrid(worldPosition);
+            SetValue(worldPos.x, worldPos.y, tile);
+        }
+
+        public Tile GetValue(int x, int y)
+        {
+            if(IsValidPosition(x, y))
+                return GameGrid[x, y];
+            return default;
+        }
+
+        public Tile GetValue(Vector3 worldPosition)
+        {
+            var worldPos = WorldToGrid(worldPosition);
+            return GetValue(worldPos.x, worldPos.y);
+        }
     }
 }

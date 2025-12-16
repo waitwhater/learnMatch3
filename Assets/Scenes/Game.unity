@@ -285,7 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f42c93843f15b4c9aeda38e9678c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Game.Board.GameBoard
-  _tilePrefab: {fileID: 0}
+  _tilePrefab: {fileID: 2850247527002339332, guid: 92a270d1d1947414d9122e1f5adfeec4, type: 3}
+  _tileConfig: {fileID: 11400000, guid: a15fc70f2f54ba347babda17670e4b62, type: 2}
 --- !u!4 &351150271
 Transform:
   m_ObjectHideFlags: 0

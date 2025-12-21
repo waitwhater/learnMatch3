@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using VContainer;
 
 namespace Assets.Scripts.Game.GridSystem
 {
-    class Grid
+    public class Grid
     {
         public Tile[,] GameGrid { get; private set; }
         public int Height { get; private set; }
@@ -16,6 +17,14 @@ namespace Assets.Scripts.Game.GridSystem
         public Vector2Int TargetPosition { get; private set; }
 
         public Grid(int height, int width)
+        {
+            Debug.Log("public Grid");
+            Height = height;
+            Width = width;
+            GameGrid = new Tile[Height, Width];
+        }
+
+        public void SetGrid(int height, int width)
         {
             Height = height;
             Width = width;

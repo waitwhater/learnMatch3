@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Game.Tiles;
+using Assets.Scripts.Game.Utils;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,10 +14,13 @@ namespace Assets.Scripts.Game.Board
         [SerializeField] private TileConfig _tileConfig;
         private readonly List<Tile> _tilesToRefill = new (); 
         private GridSystem.Grid _grid;
+        private SetupCamera _setupCamera;
 
         void Start()
         {
+            Debug.Log("Start");
             CreateBoard();
+            _setupCamera.SetCamera(_grid.Width, _grid.Height, false);
         }
 
         public void CreateBoard ()
@@ -26,7 +30,8 @@ namespace Assets.Scripts.Game.Board
 
         private void FillBoard() 
         {
-            _grid = new GridSystem.Grid(10, 10); //временное решение для создания сетки
+            //_grid = new GridSystem.Grid(10, 10); //временное решение для создания сетки
+            _grid.SetGrid(10, 10);
 
             for (int x = 0; x < _grid.Width; x++) 
                 for (int y = 0; y < _grid.Height; y++)
@@ -41,22 +46,12 @@ namespace Assets.Scripts.Game.Board
                 }
         } 
 
-        [Inject] private void Construct (GridSystem.Grid grid)
+        [Inject] 
+        public void Construct (GridSystem.Grid grid, SetupCamera setupCamera)
         {
+            Debug.Log("Inject");
             _grid = grid;
+            _setupCamera = setupCamera;
         }
-        /*
-        // Use this for initialization
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-        */
     }
 }

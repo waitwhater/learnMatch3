@@ -16,13 +16,13 @@ namespace Assets.Scripts.Game.GridSystem
         public Vector2Int CurrentPosition { get; private set; }
         public Vector2Int TargetPosition { get; private set; }
 
-        public Grid(int height, int width)
+        /*public Grid(int height, int width)
         {
             Debug.Log("public Grid");
             Height = height;
             Width = width;
             GameGrid = new Tile[Height, Width];
-        }
+        }*/
 
         public void SetGrid(int height, int width)
         {

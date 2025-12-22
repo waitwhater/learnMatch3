@@ -18,11 +18,16 @@ namespace Assets.Scripts.DI
         protected override void Configure(IContainerBuilder builder)
         {
             Debug.Log("Configure");
+            //builder.RegisterInstance(_gameBoard);
             builder.Register<Game.GridSystem.Grid>(Lifetime.Singleton);
-            builder.RegisterInstance(_gameBoard);
-            //builder.RegisterComponentInHierarchy<GameBoard>();
-            //builder.RegisterComponentInHierarchy<GameBoard>();
             builder.Register<SetupCamera>(Lifetime.Singleton);
         }
+
+        /*protected override void Awake()
+        {
+            base.Awake();
+            var controller = Instantiate(_gameBoard);
+        }*/
+        
     }
 }

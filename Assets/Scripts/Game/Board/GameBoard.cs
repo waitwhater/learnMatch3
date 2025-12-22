@@ -25,14 +25,12 @@ namespace Assets.Scripts.Game.Board
 
         public void CreateBoard ()
         {
+            _grid.SetGrid(10, 10);
             FillBoard();
         }
 
         private void FillBoard() 
         {
-            //_grid = new GridSystem.Grid(10, 10); //временное решение для создания сетки
-            _grid.SetGrid(10, 10);
-
             for (int x = 0; x < _grid.Width; x++) 
                 for (int y = 0; y < _grid.Height; y++)
                 {

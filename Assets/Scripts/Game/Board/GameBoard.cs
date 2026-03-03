@@ -10,7 +10,7 @@ namespace Assets.Scripts.Game.Board
 {
     public class GameBoard : MonoBehaviour
     {
-        [SerializeField] private GameObject _tilePrefab;
+
         [SerializeField] private TileConfig _tileConfig;
         private readonly List<Tile> _tilesToRefill = new (); 
         private GridSystem.Grid _grid;

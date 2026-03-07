@@ -36,7 +36,7 @@ namespace Assets.Scripts.Game.Board
                 {
                     if (_grid.GetValue(x, y) != null)
                         continue;
-                    var tile = Instantiate(_tilePrefab, transform);
+                    var tile = Instantiate(_tilePrefab, transform); //видимо сюда потом будет префаб из пула
                     tile.transform.position = _grid.GridToWorld(x, y);
                     var tileComponent = tile.GetComponent<Tile>();
                     tileComponent.SetTileConfig(_tileConfig);

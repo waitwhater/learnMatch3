@@ -11,7 +11,7 @@ namespace Assets.Scripts.Game.Board
     public class GameBoard : MonoBehaviour
     {
 
-        [SerializeField] private TileConfig _tileConfig;
+        //[SerializeField] private TileConfig _tileConfig;
         private readonly List<Tile> _tilesToRefill = new (); 
         private GridSystem.Grid _grid;
         private TilePool _tilePool;

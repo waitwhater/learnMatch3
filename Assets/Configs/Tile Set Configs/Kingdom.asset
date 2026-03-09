@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628903029c7f5164580ba5fc28b8d376, type: 3}
+  m_Name: Kingdom
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Game.Tiles.TileSetConfig
+  _set:
+  - {fileID: 11400000, guid: 4c87a853f14a4d145a4e6cb7809443e1, type: 2}
+  - {fileID: 11400000, guid: a15fc70f2f54ba347babda17670e4b62, type: 2}
+  - {fileID: 11400000, guid: ed8c16e80da448a4eba3d005ebc53c16, type: 2}
+  - {fileID: 11400000, guid: de0c955d4a3e89c4bb96d0ef8092a41e, type: 2}
+  - {fileID: 11400000, guid: 82ca5e45ba16caa4ca41b595a487bb80, type: 2}

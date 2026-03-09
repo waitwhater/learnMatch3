@@ -9,6 +9,7 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 using Assets.Scripts.ResourcesLoading;
+using Assets.Scripts.Game.Tiles;
 
 namespace Assets.Scripts.DI
 {
@@ -25,6 +26,7 @@ namespace Assets.Scripts.DI
             //я не знаю зачем Register
             builder.Register<Game.GridSystem.Grid>(Lifetime.Singleton);
             builder.Register<SetupCamera>(Lifetime.Singleton);
+            builder.Register<TilePool>(Lifetime.Singleton);
         }
     }
 }

@@ -21,10 +21,31 @@ namespace Assets.Scripts.Game.Tiles
             _resourcesLoader = resourcesLoader;
         }
 
+        public Tile GetTile(Vector3 position, Transform parent)
+        {
+            for (int i = 0; i < _tilePool.Count; i++)
+            {
+                if (_tilePool[i].gameObject.activeInHierarchy)
+                    continue;
+                _tilePool[i].SetTileConfig(GetRandomTileConfig());
+                _tilePool[i].gameObject.transform.position = position;
+                return _tilePool[i];
+            }
+            var tile = CreateTile(position, parent);
+            return tile;
+        }
+
         private Tile CreateTile(Vector3 position, Transform parent)
         {
             var tilePrefab = _objectResolver.Instantiate(_resourcesLoader.TilePrefab, position, Quaternion.identity, parent);
             var tile = tilePrefab.GetComponent<Tile>();
+            tile.SetTileConfig(GetRandomTileConfig());
+            _tilePool.Add(tile);
+            return tile;
         }
+
+        private TileConfig GetRandomTileConfig() => 
+            _resourcesLoader.TileSetConfig.Set[UnityEngine.Random.Range(0, _resourcesLoader.TileSetConfig.Set.Count)];
+
     }
 }

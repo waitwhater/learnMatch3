@@ -14,6 +14,7 @@ namespace Assets.Scripts.Game.Board
         [SerializeField] private TileConfig _tileConfig;
         private readonly List<Tile> _tilesToRefill = new (); 
         private GridSystem.Grid _grid;
+        private TilePool _tilePool;
         private SetupCamera _setupCamera;
 
         void Start()
@@ -36,20 +37,20 @@ namespace Assets.Scripts.Game.Board
                 {
                     if (_grid.GetValue(x, y) != null)
                         continue;
-                    var tile = Instantiate(_tilePrefab, transform); //видимо сюда потом будет префаб из пула
-                    tile.transform.position = _grid.GridToWorld(x, y);
-                    var tileComponent = tile.GetComponent<Tile>();
-                    tileComponent.SetTileConfig(_tileConfig);
-                    _grid.SetValue(x, y, tileComponent);
+                    var tile = _tilePool.GetTile(_grid.GridToWorld(x, y), transform);
+                    _grid.SetValue(x, y, tile);
+                    tile.gameObject.SetActive(true);
+                    _tilesToRefill.Add(tile);
                 }
         } 
 
         [Inject] 
-        public void Construct (GridSystem.Grid grid, SetupCamera setupCamera)
+        public void Construct (GridSystem.Grid grid, SetupCamera setupCamera, TilePool pool)
         {
             Debug.Log("Inject");
             _grid = grid;
             _setupCamera = setupCamera;
+            _tilePool = pool;
         }
     }
 }

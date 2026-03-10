@@ -27,6 +27,7 @@ namespace Assets.Scripts.DI
             builder.Register<Game.GridSystem.Grid>(Lifetime.Singleton);
             builder.Register<SetupCamera>(Lifetime.Singleton);
             builder.Register<TilePool>(Lifetime.Singleton);
+            builder.Register<GameDebug>(Lifetime.Singleton);
         }
     }
 }

@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f42c93843f15b4c9aeda38e9678c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Game.Board.GameBoard
-  _tileConfig: {fileID: 11400000, guid: a15fc70f2f54ba347babda17670e4b62, type: 2}
+  _isDebugging: 0
 --- !u!4 &351150271
 Transform:
   m_ObjectHideFlags: 0

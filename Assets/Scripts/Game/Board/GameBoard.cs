@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Game.Tiles;
+﻿using Assets.Scripts.Game.GridSystem;
+using Assets.Scripts.Game.Tiles;
 using Assets.Scripts.Game.Utils;
 using NUnit.Framework;
 using System.Collections;
@@ -12,16 +13,20 @@ namespace Assets.Scripts.Game.Board
     {
 
         //[SerializeField] private TileConfig _tileConfig;
+        [SerializeField] private bool _isDebugging;
         private readonly List<Tile> _tilesToRefill = new (); 
         private GridSystem.Grid _grid;
         private TilePool _tilePool;
         private SetupCamera _setupCamera;
+        private GameDebug _gameDebug;
 
         void Start()
         {
             Debug.Log("Start");
             CreateBoard();
             _setupCamera.SetCamera(_grid.Width, _grid.Height, false);
+            if (_isDebugging)
+                _gameDebug.ShowDebug(transform);
         }
 
         public void CreateBoard ()
@@ -45,12 +50,13 @@ namespace Assets.Scripts.Game.Board
         } 
 
         [Inject] 
-        public void Construct (GridSystem.Grid grid, SetupCamera setupCamera, TilePool pool)
+        public void Construct (GridSystem.Grid grid, SetupCamera setupCamera, TilePool pool, GameDebug gameDebug)
         {
             Debug.Log("Inject");
             _grid = grid;
             _setupCamera = setupCamera;
             _tilePool = pool;
+            _gameDebug = gameDebug;
         }
     }
 }

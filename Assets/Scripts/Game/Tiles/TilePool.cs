@@ -35,6 +35,14 @@ namespace Assets.Scripts.Game.Tiles
             return tile;
         }
 
+        private Tile CreateBlankTile(Vector3 position, Transform parent)
+        {
+            var tilePrefab = _objectResolver.Instantiate(_resourcesLoader.BlankPrefab, position, Quaternion.identity, parent);
+            var blankTile = tilePrefab.GetComponent<Tile>();
+            blankTile.SetTileConfig(_resourcesLoader.BlankConfig);
+            return blankTile;
+        }
+
         private Tile CreateTile(Vector3 position, Transform parent)
         {
             var tilePrefab = _objectResolver.Instantiate(_resourcesLoader.TilePrefab, position, Quaternion.identity, parent);

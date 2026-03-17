@@ -458,6 +458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.ResourcesLoading.GameResourcesLoader
   _tilePrefab: {fileID: 2850247527002339332, guid: 92a270d1d1947414d9122e1f5adfeec4, type: 3}
+  _blankPrefab: {fileID: 2850247527002339332, guid: 0bb15a32c63aec747ae6e23174574d40, type: 3}
+  _blankConfig: {fileID: 11400000, guid: ddcfe810cafb1004dbd40ec25c3937cf, type: 2}
   _tileSetConfig: {fileID: 11400000, guid: 91064fee1767f714a889c1871c1dcec9, type: 2}
 --- !u!4 &439255264
 Transform:
@@ -471,7 +473,8 @@ Transform:
   m_LocalPosition: {x: 7.78004, y: 0, z: -3.51734}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1425138888}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
@@ -575,6 +578,54 @@ MonoBehaviour:
   - {fileID: 439255262}
   _gameBoard: {fileID: 351150270}
   _loader: {fileID: 439255263}
+  _blankTilesSetup: {fileID: 1425138889}
+--- !u!1 &1425138887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425138888}
+  - component: {fileID: 1425138889}
+  m_Layer: 0
+  m_Name: BlankGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1425138888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425138887}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 439255264}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1425138889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425138887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f943efe6bff3614e8cd691e061a9e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Game.Tiles.BlankTilesSetup
+  _blankTilesLayout:
+  - xPosition: 0
+    yPosition: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

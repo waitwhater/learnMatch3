@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f42c93843f15b4c9aeda38e9678c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Assets.Scripts.Game.Board.GameBoard
-  _isDebugging: 0
+  _isDebugging: 1
 --- !u!4 &351150271
 Transform:
   m_ObjectHideFlags: 0
@@ -626,6 +626,10 @@ MonoBehaviour:
   _blankTilesLayout:
   - xPosition: 0
     yPosition: 0
+  - xPosition: 5
+    yPosition: 3
+  - xPosition: 9
+    yPosition: 9
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

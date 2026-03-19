@@ -17,7 +17,6 @@ namespace Assets.Scripts.DI
     {
         [SerializeField] private GameBoard _gameBoard;
         [SerializeField] private GameResourcesLoader _loader;
-        [SerializeField] private BlankTilesSetup _blankTilesSetup;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -25,12 +24,12 @@ namespace Assets.Scripts.DI
             Debug.Log("Configure");
             builder.RegisterInstance(_gameBoard);
             builder.RegisterInstance(_loader);
-            builder.RegisterInstance(_blankTilesSetup);
             //Register - это внедрение нового экземпляра класса (контейнер создает его сам). От Lifetime зависит поведение внедрение, когда он будет создаваться новый, когда уничтожится и т.д.
             builder.Register<Game.GridSystem.Grid>(Lifetime.Singleton);
             builder.Register<SetupCamera>(Lifetime.Singleton);
             builder.Register<TilePool>(Lifetime.Singleton);
             builder.Register<GameDebug>(Lifetime.Singleton);
+            builder.Register<BlankTilesSetup>(Lifetime.Singleton);
         }
     }
 }

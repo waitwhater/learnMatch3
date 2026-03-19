@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Game.GridSystem;
+using Assets.Scripts.Game.Levels;
 using Assets.Scripts.Game.Tiles;
 using Assets.Scripts.Game.Utils;
 using NUnit.Framework;
@@ -14,7 +15,8 @@ namespace Assets.Scripts.Game.Board
 
         //[SerializeField] private TileConfig _tileConfig;
         [SerializeField] private bool _isDebugging;
-        private readonly List<Tile> _tilesToRefill = new (); 
+        private readonly List<Tile> _tilesToRefill = new ();
+        [SerializeField] private LevelConfig _levelConfig;
         private GridSystem.Grid _grid;
         private TilePool _tilePool;
         private BlankTilesSetup _blankTilesSetup;
@@ -25,7 +27,7 @@ namespace Assets.Scripts.Game.Board
         {
             Debug.Log("Start");
             CreateBoard();
-            _blankTilesSetup.SetupBlanks(_grid.Width, _grid.Height);
+            _blankTilesSetup.SetupBlanks(_levelConfig);
             FillBoard();
             _setupCamera.SetCamera(_grid.Width, _grid.Height, false);
             if (_isDebugging)
@@ -34,7 +36,7 @@ namespace Assets.Scripts.Game.Board
 
         public void CreateBoard ()
         {
-            _grid.SetGrid(10, 10);
+            _grid.SetGrid(_levelConfig.Height, _levelConfig.Width);
         }
 
         private void FillBoard() 

@@ -2,6 +2,7 @@
 using Assets.Scripts.Game.Levels;
 using Assets.Scripts.Game.Tiles;
 using Assets.Scripts.Game.Utils;
+using Assets.Scripts.Input;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,10 +23,14 @@ namespace Assets.Scripts.Game.Board
         private BlankTilesSetup _blankTilesSetup;
         private SetupCamera _setupCamera;
         private GameDebug _gameDebug;
+        private InputReader _inputReader;
 
         void Start()
         {
             Debug.Log("Start");
+            _inputReader = new InputReader ();
+            _inputReader.EnableInputs(true);
+            //_inputReader.Click += ClickTest;
             CreateBoard();
             _blankTilesSetup.SetupBlanks(_levelConfig);
             FillBoard();
@@ -33,6 +38,13 @@ namespace Assets.Scripts.Game.Board
             if (_isDebugging)
                 _gameDebug.ShowDebug(transform);
         }
+
+        private void OnDisable()
+        {
+            //_inputReader.Click -= ClickTest;
+        }
+
+        //private void ClickTest() => Debug.Log("Click Test");
 
         public void CreateBoard ()
         {

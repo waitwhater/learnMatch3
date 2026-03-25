@@ -25,15 +25,14 @@ namespace Assets.Scripts.Game.Board
         private GameDebug _gameDebug;
         private InputReader _inputReader;
 
-        void Start()
+        void Awake()
         {
-            Debug.Log("Start");
+            Debug.Log("Awake");
+            _grid.SetGrid(_levelConfig.Height, _levelConfig.Width);
             _inputReader = new InputReader ();
             _inputReader.EnableInputs(true);
             //_inputReader.Click += ClickTest;
-            CreateBoard();
             _blankTilesSetup.SetupBlanks(_levelConfig);
-            FillBoard();
             _setupCamera.SetCamera(_grid.Width, _grid.Height, false);
             if (_isDebugging)
                 _gameDebug.ShowDebug(transform);
@@ -48,7 +47,7 @@ namespace Assets.Scripts.Game.Board
 
         public void CreateBoard ()
         {
-            _grid.SetGrid(_levelConfig.Height, _levelConfig.Width);
+            FillBoard();
         }
 
         private void FillBoard() 

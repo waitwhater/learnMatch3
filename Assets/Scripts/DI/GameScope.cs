@@ -10,6 +10,7 @@ using VContainer;
 using VContainer.Unity;
 using Assets.Scripts.ResourcesLoading;
 using Assets.Scripts.Game.Tiles;
+using Assets.Scripts.Game.Animations;
 
 namespace Assets.Scripts.DI
 {
@@ -25,6 +26,7 @@ namespace Assets.Scripts.DI
             builder.RegisterInstance(_gameBoard);
             builder.RegisterInstance(_loader);
             //Register - это внедрение нового экземпляра класса (контейнер создает его сам). От Lifetime зависит поведение внедрение, когда он будет создаваться новый, когда уничтожится и т.д.
+            builder.Register<IAnimation, AnimationManager>(Lifetime.Singleton);
             builder.Register<Game.GridSystem.Grid>(Lifetime.Singleton);
             builder.Register<SetupCamera>(Lifetime.Singleton);
             builder.Register<TilePool>(Lifetime.Singleton);
